@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore internships, build skills, and take the next step in your career.">
+  <title>EDVYRO — Internship Portal</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="LaunchPad home"><span class="brand-mark">L</span> EDVYRO<span class="brand-dot">.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#opportunities">Opportunities</a>
+      <a href="#how-it-works">How it works</a>
+      <a class="nav-cta" href="#opportunities">Find an internship <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="pulse"></span> YOUR NEXT CHAPTER STARTS HERE</p>
+        <h1>Turn your potential<br>into <span class="gradient-text">real experience.</span></h1>
+        <p class="hero-subtitle">Find meaningful internships, learn by doing, and build the future you want — one opportunity at a time.</p>
+        <a class="button button-primary" href="#opportunities">Explore opportunities <span aria-hidden="true">→</span></a>
+        <div class="trust-row"><span class="avatars" aria-hidden="true"><i>T</i><i>A</i><i>M</i></span><span>Made for curious minds and future builders</span></div>
+      </div>
+      <div class="hero-art" aria-label="Illustration of a career growth dashboard" role="img">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="floating-card card-top"><span class="mini-icon purple">✦</span><div><b>New opportunities</b><small>Find your fit</small></div><span class="tiny-arrow">↗</span></div>
+        <div class="growth-card"><div class="growth-head"><span class="mini-icon green">↗</span><span>Career growth</span><span class="live-pill">IN PROGRESS</span></div><div class="growth-number">Your future, <em>unlocked.</em></div><div class="chart"><span style="height:25%"></span><span style="height:38%"></span><span style="height:32%"></span><span style="height:53%"></span><span style="height:47%"></span><span style="height:69%"></span><span style="height:61%"></span><span style="height:86%"></span><span style="height:76%"></span><span style="height:100%"></span></div><div class="chart-labels"><span>START</span><span>YOUR NEXT STEP</span></div></div>
+        <div class="floating-card card-bottom"><span class="mini-icon orange">✺</span><div><b>Skills that matter</b><small>Learn. Build. Grow.</small></div><span class="check">✓</span></div>
+        <div class="sparkle sparkle-one">✳</div><div class="sparkle sparkle-two">✦</div>
+      </div>
+    </section>
+    <section class="stats" aria-label="Portal highlights">
+      <div><strong>Explore</strong><span>Curated opportunities</span></div>
+      <div><strong>Apply</strong><span>Simple application flow</span></div>
+      <div><strong>Grow</strong><span>Experience that counts</span></div>
+      <div class="api-status"><span id="status-dot" class="status-dot"></span><span id="status-text">Checking service…</span></div>
+    </section>
+    <section class="opportunities section-wrap" id="opportunities">
+      <div class="section-heading"><div><p class="eyebrow">YOUR NEXT OPPORTUNITY</p><h2>Find your starting point.</h2><p class="section-subtitle">Explore roles that help you turn what you know into what you can do.</p></div><span class="result-count" id="result-count">Loading roles…</span></div>
+      <div class="filters">
+        <label class="search-box"><span aria-hidden="true">⌕</span><span class="sr-only">Search internships</span><input id="search-input" type="search" placeholder="Search roles or skills…"></label>
+        <label class="sr-only" for="domain-filter">Filter by domain</label>
+        <select id="domain-filter"><option value="">All domains</option></select>
+      </div>
+      <div id="message" class="message" role="status" aria-live="polite" hidden></div>
+      <div id="internship-grid" class="internship-grid" aria-live="polite"><div class="loading-card">Finding opportunities for you…</div></div>
+    </section>
+    <section class="how-section" id="how-it-works">
+      <div class="section-wrap how-inner"><div><p class="eyebrow">A SIMPLE FIRST STEP</p><h2>Big things start<br>with one <span class="gradient-text">small step.</span></h2></div>
+        <div class="steps"><article><span>01</span><div><h3>Find your fit</h3><p>Browse opportunities that match your interests and the skills you want to build.</p></div></article><article><span>02</span><div><h3>Tell your story</h3><p>Submit a short application and let your curiosity and motivation shine.</p></div></article><article><span>03</span><div><h3>Keep growing</h3><p>Use every project, challenge, and new skill as a step toward your goals.</p></div></article></div>
+      </div>
+    </section>
+    <section class="closing section-wrap"><div><p class="eyebrow">YOUR JOURNEY IS YOURS</p><h2>Start where you are.<br><span class="gradient-text">Go where you dream.</span></h2></div><a class="button button-dark" href="#opportunities">Find your opportunity <span aria-hidden="true">→</span></a></section>
+  </main>
+  <footer><a class="brand footer-brand" href="/"><span class="brand-mark">L</span> EDVYRO<span class="brand-dot">.</span></a><span>Built for learning, designed for what’s next.</span><span>© <span id="year"></span> LaunchPad Internship Portal</span></footer>
+
+  <dialog id="apply-dialog" aria-labelledby="dialog-title">
+    <form id="application-form">
+      <div class="dialog-head"><div><p class="eyebrow">TAKE THE NEXT STEP</p><h2 id="dialog-title">Apply for this role</h2><p id="dialog-role" class="dialog-role"></p></div><button type="button" id="close-dialog" class="close-button" aria-label="Close application form">×</button></div>
+      <input type="hidden" id="internship-id" name="internship_id">
+      <label for="applicant-name">Full name <span>*</span></label><input id="applicant-name" name="applicant_name" required minlength="2" maxlength="80" autocomplete="name" placeholder="Your name">
+      <label for="applicant-email">Email address <span>*</span></label><input id="applicant-email" name="applicant_email" type="email" required maxlength="254" autocomplete="email" placeholder="you@example.com">
+      <label for="skills">Skills <small>(optional)</small></label><input id="skills" name="skills" maxlength="500" placeholder="e.g. HTML, Python, SQL">
+      <label for="motivation">Why are you interested? <small>(optional)</small></label><textarea id="motivation" name="motivation" rows="3" maxlength="1500" placeholder="Tell us what you hope to learn…"></textarea>
+      <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+      <button id="submit-application" class="button button-primary submit-button" type="submit">Submit application <span aria-hidden="true">→</span></button>
+      <p class="privacy-note">Your details are used only to record this application in the demo portal.</p>
+    </form>
+  </dialog>
+</body>
+</html>
